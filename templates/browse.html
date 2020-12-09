@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Search and Browse books</h3>
+<input type="text" >
+
+<h4>Categories</h4>
+<ul>
+{% for category in categories %}
+    <li><a href="{{ url_for('category', name=category['name']) }}">{{ category['name'] | title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

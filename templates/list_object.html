@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Admin</h1>
+<h3>{{ object }}</h3>
+
+<ul>
+{% for item in items %}
+    <li>{% if object=='post' %} {{ item['title'] }} {% else %}{{ item['name'] }} {% endif %}
+        <a href="/admin/{{ object }}/{{ item['id'] }}/edit">Edit</a>
+        <a href="/admin/{{ object }}/{{ item['id'] }}/delete">Delete</a>
+    </li>
+{% endfor %}
+</ul>
+
+    <a href="/admin/{{ object }}/new">Create</a>
+
+{% endblock %}

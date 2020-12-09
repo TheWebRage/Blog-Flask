@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ category['name'] }}</h1>
+<h3>{{ category['description'] }}</h3>
+
+<ul>
+{% for post in category %}
+    <li><a href="{{ url_for('post', category=category['name'], id=post['Id']) }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

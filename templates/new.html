@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <h1>New {{ object }}</h1>
+  <form method="post">
+
+  {% if object == 'author' or object == 'category' %}
+    <label for="name">Name</label>
+    <input name="name" id="name" value="{{ item['name'] }}">
+  {% endif %}
+  {% if object == 'category' %}
+     <label for="description">Description</label>
+     <input type="text" name="description" value="{{ item['description'] }}">
+  {% elif object == 'post' %}
+      <label for="title">Title</label>
+      <input type="text" name="title" value="{{ item['title'] }}">
+
+      <label for="content">Content</label>
+      <input type="text" name="content" value="{{ item['content'] }}">
+
+      <label for="authorid">AuthorId</label>
+      <input type="text" name="authorid" value="{{ item['authorid'] }}">
+
+      <label for="categoryid">CategoryId</label>
+      <input type="text" name="categoryid" value="{{ item['categoryid'] }}">
+  {% endif %}
+
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
